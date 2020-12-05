@@ -47,6 +47,6 @@ const lugaresSchema = new Schema({
 
 )
 
-const lugaresColletion = mongoose.model('PetFriendly', lugaresSchema)
+const lugaresCollection = mongoose.model('PetFriendly', lugaresSchema)
 
-module.exports = lugaresColletion
+module.exports = lugaresCollection

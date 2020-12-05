@@ -1,11 +1,11 @@
-const lugaresColletion = require('../model/schemaLugares')
-//const lugaresCollection = require('../model/Schema')
+const lugaresCollection = require('../model/schemaLugares')
+
 
 //getAll lugares
 const getLugares = (req,res)=>{
     console.log(req.url)
 
-    lugaresColletion.find((error,lugares)=>{ 
+    lugaresCollection.find((error,lugares)=>{ 
         if(error){
             return res.status(500).send(error)
         }else{
@@ -14,57 +14,71 @@ const getLugares = (req,res)=>{
                 lugares
             })
         }
-    })
+    }).sort({nome:1})
 }
 
-//get por tipo
-const getTipo = (req,res) => {
-    const tipoParam = req.params.tipo
-    lugaresColletion.find({tipo: new RegExp(tipoParam,'i')},(error,tipoLugar)=>{    //procura no banco de dados qualquer palavra sem diferenciação de maiscula e minuscula
+
+//Get ID
+const getById = (req, res) => {
+    const idParam = req.params._id
     
+    lugaresCollection.findById(idParam, (error, localID)=>{
         if(error){
-            return res.status(500).send(error)
+            return res.status(404).send({mensagem:"ID não encontrado"})
         }else{
-            if(tipoLugar){
+            if(localID){
                 return res.status(200).send({
-                    mensagem: "Lugares encontrados!",
-                    tipoLugar
-                })
+                mensagem:"ID encontrado!",
+                localID})
             }else{
-                return res.status(404).send({
-                    mensagem :"Nada encontrado,digite algum texto"
-                })
+                return res.status(404).send("Não encontrado.")
             }
         }
     })
 }
 
-//get por nome e qualquer outra letra 
-//db.users.find({"name": /string/})  
-//db.users.find({"name": {"$regex": "string", "$options": "i"}})
-// db. mulheresincriveis.find({ "nome" : /^a/ }).pretty() – um nome que comece com a.
-const getNome = (req,res) => {
-    const nomeParam = req.params.nome    //
-    lugaresColletion.find({nome: new RegExp(nomeParam,'i')},(error,nomeLugar)=>{  
-    //lugaresColletion.find({name: { $regex: new RegExp(nomeParam), $options: 'i'}},(error,nomeLugar)=>{  
-        if(error){
+// GET tipo
+const getTipo = (req, res) => {
+        const nomeParam = req.params.tipo
+        lugaresCollection.find({tipo:nomeParam}, (error, tipo) => {
+          if(error) {
             return res.status(500).send(error)
+    
+          } else if(tipo == '') {
+            return res.status(404).send('Local não encontrado.')
+    
+          } else {
+            return res.status(200).send(tipo)
+          }
+        })
+      }
+
+//Get nome
+const getNome = (req,res) => {
+    const nomeParam = req.params.nome // normalize("NFD").replace(/[^a-zA-Zs]/g, "")
+
+    lugaresCollection.find({nome: new RegExp(nomeParam,'i')},(error,nomeLugar)=>{  
+
+        if(error){
+            return res.status(404).send(error)
         }else{
             if(nomeLugar){
-                return res.status(200).send(nomeLugar)
+                return res.status(200).send({
+                mensagem:"Lugares encontrados!",
+                nomeLugar})
             }else{
-                return res.status(404).send("Tipo de lugar não encontrado")
+                return res.status(404).send("Lugar não encontrado")
             }
         }
-    })
+    }).sort({nome:1})
 }
  
 
-// post add novo lugar
+// POST add novo lugar
 const addLugar  = (req,res)=>{
     
     const lugarBody = req.body 
-    const lugarAdd= new lugaresCollection(lugarBody) 
+    const lugarAdd= new lugaresCollection(lugarBody)
 
     lugarAdd.save((error)=>{   
         if(error){
@@ -78,19 +92,19 @@ const addLugar  = (req,res)=>{
     })
 }
 
-// Update atualizar lugar telefone
+// PUT atualizar 
 
-const upDateCel = (req,res) =>{
+const upDate = (req,res) =>{
     const idParam = req.params._id
-    const telBody = req.body
+    const atualizaBody = req.body
     const novo = {new:true} // editamos dizendo que estamos apenas atualizando
 
-    lugaresCollection.findByIdAndUpdate(idParam, telBody, novo,(error,telNovo)=>{
+    lugaresCollection.findByIdAndUpdate(idParam, atualizaBody, novo,(error,atualiza)=>{
 
             if(error) {
                 return res.status(500).send(error)
-            } else if (telNovo) {
-                return res.status(200).send({mensagem: "Celular atualizado",telNovo})
+            } else if (atualiza) {
+                return res.status(200).send({mensagem: "Atualização realizada",atualiza})
             } else {
                 return res.status(404).send({mensagem: "Contato não encontrado"})
         }
@@ -100,50 +114,34 @@ const upDateCel = (req,res) =>{
 
 
 
-
-// deletar pelo nome
-const delLugarNome = (req,res)=>{
-    const nomeParam = req.params.nome
-
-    lugaresCollection.deleteOne({"nome":nomeParam}, (error, localNome)=>{
-        if(error){
-            return res.status(500).send(error)
-        }else{
-            if(localNome){
-                return res.status(200).send({mensagem:"local apagado"})
-            }else{
-                return res.status(404).send("local não encontrado")
-            }
-        }
-    })
-}
-
 // deletar pelo id
 
 const delLocalById = (req,res)=>{
     const idParam = req.params._id
-    lugaresCollection.findByIdAndDelete(idParam, (error, LugarID)=>{
+    lugaresCollection.findByIdAndDelete(idParam, (error, contatoID)=>{
         if(error){
             return res.status(500).send(error)
         }else{
-            if(LugarID){
-                return res.status(200).send({mensagem:"Lugar apagado"})
+            if(contatoID){
+                return res.status(200).send({mensagem:"lugar apagado"})
             }else{
-                return res.status(404).send("Lugar não encontrado")
+                return res.status(404).send("Local não encontrado")
             }
         }
     })
 }
+    
 
+      
 
 
 module.exports = {
     getLugares,
     getTipo,
     getNome,
+    getById,
     addLugar,
-    upDateCel,
-    delLugarNome,
+    upDate,
     delLocalById
+} 
 
-}
