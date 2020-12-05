@@ -1,29 +1,52 @@
+require('dotenv-safe').config();
+
 const express = require('express')
+const bodyParser = require('body-parser') 
+const mongoose = require('mongoose')
+
 const app = express()
-const cors = require('cors')
-const db = require('./model/repository')
-//const bcrypt = require('bcrypt')
 
+//string de conexão
+//mongoose.connect("mongodb://localhost:27017/APIPET") -- rodar localmente
+mongoose.connect(process.env.MONGODB_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex:true,
+    useFindAndModify:true
+})
 
-const bodyParser = require('body-parser') // *
+//conexão com o mongo
+let db = mongoose.connection
+
+db.on("error", console.log.bind(console, "connection error:"))
+db.once("open", function (){
+  console.log("conexão feita com sucesso!")
+})
+
 
 //rotas
 const index = require('./router/index')
 const lugares = require('./router/lugaresRoutes')
-const cadastro = require('./controller/cadastroController')
+const users = require('./router/userRoutes');
+//const { MongooseDocument } = require('mongoose');
 
-db.connect()
-app.use(cors())
+//db.connect()
+//app.use(cors())
 app.use(express.json())
-//app.use(bcrypt())
-app.use(bodyParser.urlencoded({extended: true})) //*
+app.use(bodyParser.json()) // configura body-parser
+
+// app.use(function (req, res, next) {  // função do express pode ser usado caso não instale o body-parser
+//     res.header("Access-Control-Allow-Origin", "*")
+//     res.header(
+//       "Access-Control-Allow-Headers",
+//       "Origin, X-Requested-With, Content-Type, Accept"
+//       )
+//       next()
+//     })
 
 app.use('/', index)
 app.use('/lugares', lugares)
-app.use('/cadastro',cadastro)
-
-// app.use(app.router);
-// routes.initialize(app)
+app.use('/users',users)
 
 module.exports = app
 

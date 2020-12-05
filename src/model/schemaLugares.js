@@ -43,10 +43,12 @@ const lugaresSchema = new Schema({
 {
     collection:"PetFriendly",  // para puxar os dados que já tenho no banco de dados
     versionKey:false
-}
+})
 
-)
 
+// atribuindo o esquema a uma collection
+// estou definindo o nome da collection que irei salvar no banco
 const lugaresCollection = mongoose.model('PetFriendly', lugaresSchema)
 
+// exportar o model para ser utilizado
 module.exports = lugaresCollection

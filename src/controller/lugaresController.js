@@ -145,3 +145,6 @@ module.exports = {
     delLocalById
 } 
 
+
+
+// { $not: { $regex: "^p.*" } para remover acentos

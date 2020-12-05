@@ -12,10 +12,6 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    dataNascimento: {
-        type: Date,
-        required: true,
-    },
     email: {
         type: String,
         required: true,
@@ -23,9 +19,13 @@ const userSchema = new Schema({
     senha: {
         type: String,
         required: true,
-    }
+    },
+    
+},
+{
+    versionKey: false //gera por padrão uma versão para cada atualização do documento
 });
 
-const UserCollection = mongoose.model('cadastroUser', userSchema);
+const userCollection = mongoose.model('cadastroUser', userSchema);
 
-module.exports = UserCollection;
+module.exports = userCollection;
