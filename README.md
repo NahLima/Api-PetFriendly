@@ -5,11 +5,11 @@ Uma REST API com CRUD, NODE.js e MongoDB. A intenção desta aplicação é perm
 
 **mongoose** = biblioteca wrapper 
 
-**process.env** = vai pegar as variáveis de ambiente, é usado para vc subir para o heroku ou outra plataforma. 
+**process.env** = vai pegar as variáveis de ambiente, é usado para vc subir para o heroku ou outra plataforma/servidor. 
 
 **express** = ajuda a fazer a tratativa de rotas e requests http
 
-**body-parser** = faz com que o node entenda as requesiçoes, recebendo as informações json e que ele possa entender os parametros de url
+**body-parser** = faz com que o node entenda as requesições, recebendo as informações json e que ele possa entender os parametros de url
 
 **config ()** =método que vai buscar as variáveis de ambiente que estão no .env 
 
@@ -28,3 +28,6 @@ Secret = é a chave que vamos usar para gerar o token
 **Autorização** // quem pode ver você --> Permissão/Controle e Acessos
 
 **heroku** = servidor na nuvem, permite que outros usuários utilizem nossas aplicações
+
+**jwt.sign** = É formado por três seções: Header, Payload e Signature. Formado através de informações que vem do seu usuário  gerando um token em cima da informaçào que você passar
+

@@ -3,7 +3,7 @@ require('dotenv-safe').config();
 const express = require('express')
 const bodyParser = require('body-parser') 
 const mongoose = require('mongoose')
-
+const cors = require('cors')
 const app = express()
 
 //string de conexão
@@ -30,10 +30,15 @@ const lugares = require('./router/lugaresRoutes')
 const users = require('./router/userRoutes');
 //const { MongooseDocument } = require('mongoose');
 
-//db.connect()
-//app.use(cors())
+app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json()) // configura body-parser
+
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true
+//   })
+// )
 
 // app.use(function (req, res, next) {  // função do express pode ser usado caso não instale o body-parser
 //     res.header("Access-Control-Allow-Origin", "*")
