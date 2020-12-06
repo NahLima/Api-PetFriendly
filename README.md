@@ -1,7 +1,14 @@
-# Api-PetFriendly
-_Projeto final {reprograma}_ 
+# REST API com CRUD, NODE.js e MongoDB
 
-Uma REST API com CRUD, NODE.js e MongoDB. A intenção desta aplicação é permitir aos utilizadores inserirem locais PetFriendly na base de dados mongoDB, a base crescerá com a inserção de registros dos utilizadores(as). 
+![API](./img/API-PetFriendly.jpg)
+
+Esse projeto foi desenvolvido para a conclusão do bootcamp **{REPROGRAMA} XP.inc**. O projeto começou com um problema real que eu tenho no dia-a-dia, levar minha pet para ir comigo a diversos lugares sem me preocupar se ela pode ou não entrar. Foi assim que surgiu a **API- PETFRIENDLY**.
+
+A intenção desta aplicação é permitir aos utilizadores inserirem locais PetFriendly na base de dados mongoDB, a base crescerá com a inserção de registros dos utilizadores(as) e os usuários(clientes) poderão acessar e comentar sobre os locais disponibilizados.
+
+![bibliotecas](./img/bibliotecas-ferramentas.jpg)
+
+## Breve explicação das tecnicas usadas. 
 
 **mongoose** = biblioteca wrapper 
 
@@ -20,14 +27,29 @@ env.exemplo = consegue criar as variaveis de ambiente, templete que o .env vai u
 
 **Token JWT** = é um padrão (RFC-7519) que define como transmitir e armazenar objetos Json de forma compacta e segura. 
 
+**jwt.sign** = É formado por três seções: Header, Payload e Signature. Formado através de informações que vem do seu usuário  gerando um token em cima da informaçào que você passar
+
 **Signature do Token** = concatenação do Header + Payload + Secret
 Secret = é a chave que vamos usar para gerar o token
 
-### Autenticação é diferente de Autorização, nessa aplicação vamos usar a autenticação
-**Autenticação** // quem é você --> Logar/deslogar/verificar senha
-**Autorização** // quem pode ver você --> Permissão/Controle e Acessos
+**Autenticação** = ele basicamente fa a seguinte pergunta: Quem é você? verificar senha e email (login de acesso)
 
 **heroku** = servidor na nuvem, permite que outros usuários utilizem nossas aplicações
 
-**jwt.sign** = É formado por três seções: Header, Payload e Signature. Formado através de informações que vem do seu usuário  gerando um token em cima da informaçào que você passar
+
+
+## Como foi o processo de criação da aplicação ?
+
+O primeiro passo foi eu entender exatamente o que eu queria fazer, então construi uma espécie de narrativa visual do que seria o projeto. Nela eu consigo visualizar os schemas que seriam utilizados, tipos de controller que eu poderia desenvolver e até mesmo a autenticação de email e senha. 
+Fiz um tamplete utilizando o adobe Xd (lembrando que essa aplicação contém apenas o back-end).
+
+![site01](./img/site01.jpg)
+
+![site01](./img/site02.jpg)
+
+![site01](./img/site03.jpg)
+
+
+
+
 

@@ -22,7 +22,7 @@ const lugaresSchema = new Schema({
         required:false
     },
     endereço:{
-        type: String,
+        type: String, 
         required: true
     },
     telefone:{
