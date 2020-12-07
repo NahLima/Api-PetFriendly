@@ -50,11 +50,11 @@ O **secret** é a chave que a ser utilizada para gerar o token
 
 O primeiro passo foi entender exatamente o que deveria ser feito e o que eu desejava fazer. Construí uma espécie de narrativa visual do que seria o projeto, que está detalhada abaixo. Nesta narrativa, é possível visualizar os schemas a serem utilizados, os tipos de controllers que podem ser desenvolvidos e até mesmo como acontece a autenticação utilizando endereço de email e senha. Criei um template utilizando Adobe XD. É importante lembrar que esta aplicação contém apenas o backend.
 
-![site01](./img/site01.jpg)
+![site01](./img/site01.JPG)
 
-![site01](./img/site02.jpg)
+![site01](./img/site02.JPG)
 
-![site01](./img/site03.jpg)
+![site01](./img/site03.JPG)
 
 
 ## Quais os aprendizados obtidos com esse projeto? 
