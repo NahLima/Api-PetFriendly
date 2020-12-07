@@ -54,32 +54,6 @@ const getByIdUser = (req, res) => {
   })
 }
 
-// trocar senha do usuário 
-// const upDateUser = (req,res) =>{
-//   const idParam = req.params.id
-//   const novo = {new:true} // editamos dizendo que estamos apenas atualizando
-
-//   userCollection.findByIdAndUpdate(idParam, novo,(error,trocarSenha)=>{
-
-//           if(error) {
-//               return res.status(500).send(error)
-//           } else if (trocarSenha) {
-//               return res.status(200).send({
-//                 mensagem:"Senha atualizada com sucesso",
-//                 trocarSenha
-//               })
-//           } else {
-//               return res.status(404).send({
-//                 mensagem: "Contato não encontrado"
-//               })
-//             }
-  
-//     })
-//   }
-
-
-
-
 
 //deletar um usuário
 const delUserById = (req,res)=>{

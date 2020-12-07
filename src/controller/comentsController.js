@@ -1,10 +1,15 @@
 const comentarioCollection = require('../model/schemaComents')
+const lugarCollection = require('../model/schemaLugares')
+const userCollection = require('../model/schemaUsuarios')
 
 
 
 const postComent = (req, res) => {
     console.log(req.url)
     const comentBody = req.body
+    // const lugarBody = req.params.id
+    // const userBody = req.params.nome
+
 
     const comentarioAdd = new comentarioCollection(comentBody)
 
@@ -15,7 +20,6 @@ const postComent = (req, res) => {
                 error
             })
         }
-
         return res.status(200).send({
             mensagem: "Local avaliado com sucesso", 
             comentarioAdd

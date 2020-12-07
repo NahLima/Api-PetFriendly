@@ -8,10 +8,10 @@ const comentController = require("../controller/comentsController")
 router.get("/", lugarController.getLugares)
 router.get("/tipo/:tipo", lugarController.getTipo)
 router.get("/nome/:nome", lugarController.getNome)
-router.get("/id/:_id", lugarController.getById)
+router.get("/id/:id", lugarController.getById)
 router.post("/criar", lugarController.addLugar)
-router.put("/atualizar/:_id", lugarController.upDate)
-router.delete("/delete/:_id", lugarController.delLocalById)
+router.put("/atualizar/:id", lugarController.upDate)
+router.delete("/delete/:id", lugarController.delLocalById)
 
 
 // comentarios rota

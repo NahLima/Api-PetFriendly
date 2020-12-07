@@ -20,7 +20,7 @@ const getLugares = (req,res)=>{
 
 //Get ID
 const getById = (req, res) => {
-    const idParam = req.params._id
+    const idParam = req.params.id
     
     lugaresCollection.findById(idParam, (error, localID)=>{
         if(error){
@@ -95,7 +95,7 @@ const addLugar  = (req,res)=>{
 // PUT atualizar 
 
 const upDate = (req,res) =>{
-    const idParam = req.params._id
+    const idParam = req.params.id
     const atualizaBody = req.body
     const novo = {new:true} // editamos dizendo que estamos apenas atualizando
 
@@ -117,7 +117,7 @@ const upDate = (req,res) =>{
 // deletar pelo id
 
 const delLocalById = (req,res)=>{
-    const idParam = req.params._id
+    const idParam = req.params.id
     lugaresCollection.findByIdAndDelete(idParam, (error, contatoID)=>{
         if(error){
             return res.status(500).send(error)
@@ -145,6 +145,3 @@ module.exports = {
     delLocalById
 } 
 
-
-
-// { $not: { $regex: "^p.*" } para remover acentos

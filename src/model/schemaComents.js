@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+// const schemaLugares = require('./schemaLugares') 
+// const schemaUsuarios = require('./schemaUsuarios') 
 
 const Schema = mongoose.Schema
 
@@ -7,11 +9,13 @@ const ComentsSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'schemaUsuarios',
+        localField: 'id',
         required: true
     },
     lugarId: {
         type: Schema.Types.ObjectId,
         ref: 'schemaLugares',
+        localField: 'id',
         required: true
     },
     comentario: {
@@ -30,4 +34,3 @@ const ComentsSchema = new Schema({
 const comentarioCollection = mongoose.model('comentario', ComentsSchema)
 
 module.exports = comentarioCollection
-
