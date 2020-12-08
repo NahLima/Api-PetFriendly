@@ -67,18 +67,18 @@ Método | Caminho | Descrição
 ------ | ------- | ---------:
 // | **ROTA** |**lugares**|
 GET | /lugares | Retorna todos os lugares.
-GET | /tipo/:tipo | Retorna uma lista de lugares co o mesmo tipo.
+GET | /tipo/:tipo | Retorna uma lista de lugares com o mesmo tipo.
 GET | /nome/:nome | Retorna um lugar por nome.
-GET | /id/:id | Retorna um lugar especifico.
-POST| /criar| adiciona um lugar .
-PUT | /atualizar/:id | Retorna um lugar especifico.
+GET | /id/:id | Retorna um lugar específico.
+POST| /criar| adiciona um lugar.
+PUT | /atualizar/:id | Retorna um lugar específico.
 DELETE | /delete/:id | Deleta um lugar.
 POST| /comentar| cria um comentário.
 // | **ROTA** | **users**
-GET | /ver | Retorna todos os comentarios.
-POST | /create | Adiciona um usuario.
+GET | /ver | Retorna todos os comentários.
+POST | /create | Adiciona um usuário.
 POST | /login | confere usuário
-GET | /users| retorna todos os usuarios cadastrados.
+GET | /users| retorna todos os usuários cadastrados.
 DELETE | /id/:id | Deleta um produto.
 
 
