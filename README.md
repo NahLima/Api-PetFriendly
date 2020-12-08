@@ -104,8 +104,9 @@ O que posso dizer é que a cada dia na construção desta API, fui me desenvolve
 if (medo){
     return "respira e continua"
 
-}else if {
-    return "Você está chegando no seu objetivo"
+}else 
+    if(criando confiaça){
+        return "Você está chegando no seu objetivo"
 
 }else{
     return "Parabéns você concluiu com êxito!"
