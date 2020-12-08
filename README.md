@@ -105,7 +105,7 @@ if (medo){
     return "respira e continua"
 
 }else 
-    if(criando confiaça){
+    if(criando confiança){
         return "Você está chegando no seu objetivo"
 
 }else{
