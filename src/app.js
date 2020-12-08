@@ -7,7 +7,6 @@ const cors = require('cors')
 const app = express()
 
 //string de conexão
-//mongoose.connect("mongodb://localhost:27017/APIPET") -- rodar localmente
 mongoose.connect(process.env.MONGODB_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true,

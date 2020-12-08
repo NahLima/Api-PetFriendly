@@ -1,16 +1,10 @@
 const comentarioCollection = require('../model/schemaComents')
-const lugarCollection = require('../model/schemaLugares')
-const userCollection = require('../model/schemaUsuarios')
 
-
-
+// create comentario novo
 const postComent = (req, res) => {
     console.log(req.url)
     const comentBody = req.body
-    // const lugarBody = req.params.id
-    // const userBody = req.params.nome
-
-
+  
     const comentarioAdd = new comentarioCollection(comentBody)
 
     comentarioAdd.save((error) => {
@@ -28,7 +22,7 @@ const postComent = (req, res) => {
 
 }
 
-
+// pega  todos os comentarios
 const getComents = (req,res)=>{
     console.log(req.url)
 

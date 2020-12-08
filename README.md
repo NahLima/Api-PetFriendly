@@ -15,10 +15,25 @@ A base irá crescer conforme forem inseridos os registros dos utilizadores(as). 
 A ideia é facilitar a vida dos usuários finais (clientes), para que eles possam acessar esta base de forma amigável, encontrar locais **PetFriendly**, deixar seus próprios comentários e avaliações sobre os estabelecimentos disponibilizados etc.
 
 ## Para utilizar essa API você vai precisar:
+<img src="./img/bibliotecas-ferramentas.jpg" width="410"/> 
 
-![bibliotecas](./img/bibliotecas-ferramentas.jpg)
 
-## Breve explicação das tecnologias usadas
+ - [VSCode](https://code.visualstudio.com/)
+ - [nodejs](https://nodejs.org/)
+ - [mongodb](https://www.mongodb.com/)
+ - [npm](https://www.npmjs.com/)
+ - [nodemon](https://www.npmjs.com/package/nodemon)
+ - [mongoose](https://www.npmjs.com/package/mongoose)
+ - [express](https://www.npmjs.com/package/express)
+ - [cors](https://www.npmjs.com/package/cors)
+ - [dotenv](https://www.npmjs.com/package/dotenv)
+ - [jwt](https://jwt.io/)
+ - [postman](https://www.postman.com/)
+ - [body-parser](https://www.npmjs.com/package/body-parser)
+ - [bycript](https://www.npmjs.com/package/bcrypt)
+
+
+## Breve explicação das tecnologias usadas e aprendidas! 
 
 **mongoose** = biblioteca wrapper 
 
@@ -46,6 +61,27 @@ O **secret** é a chave que a ser utilizada para gerar o token
 **heroku** = Servidor na nuvem. Permite que outros usuários utilizem as aplicações
 
 
+## Endpoints
+
+Método | Caminho | Descrição
+------ | ------- | ---------:
+// | **ROTA** |**lugares**|
+GET | /lugares | Retorna todos os lugares.
+GET | /tipo/:tipo | Retorna uma lista de lugares co o mesmo tipo.
+GET | /nome/:nome | Retorna um lugar por nome.
+GET | /id/:id | Retorna um lugar especifico.
+POST| /criar| adiciona um lugar .
+PUT | /atualizar/:id | Retorna um lugar especifico.
+DELETE | /delete/:id | Deleta um lugar.
+POST| /comentar| cria um comentário.
+// | **ROTA** | **users**
+GET | /ver | Retorna todos os comentarios.
+POST | /create | Adiciona um usuario.
+POST | /login | confere usuário
+GET | /users| retorna todos os usuarios cadastrados.
+DELETE | /id/:id | Deleta um produto.
+
+
 ## Como foi o processo de criação da aplicação?
 
 O primeiro passo foi entender exatamente o que deveria ser feito e o que eu desejava fazer. Construí uma espécie de narrativa visual do que seria o projeto, que está detalhada abaixo. Nesta narrativa, é possível visualizar os schemas a serem utilizados, os tipos de controllers que podem ser desenvolvidos e até mesmo como acontece a autenticação utilizando endereço de email e senha. Criei um template utilizando Adobe XD. É importante lembrar que esta aplicação contém apenas o backend.
@@ -57,10 +93,31 @@ O primeiro passo foi entender exatamente o que deveria ser feito e o que eu dese
 ![site01](./img/site03.JPG)
 
 
+
 ## Quais os aprendizados obtidos com esse projeto? 
 
-Começar algo do zero sempre dá um friozinho na barriga. Muitas vezes é normal pensar que não irá concluir, que não irá consegruir entregar, principalmente quando é algo muito novo na vida, como este bootcamp e este projeto tem sido na minha! 
+Começar algo do zero sempre dá um friozinho na barriga. Muitas vezes é normal pensar que não irá concluir, que não não vai entregar a tempo, principalmente quando é algo muito novo na vida, como este bootcamp e este projeto tem sido na minha! 
 
-O que posso dizer é que a cada dia na construção desta API, fui aprendendo mais. Entendi como corrigir novos erros, entender porque algumas coisas funcionam e outras não. Descobri ferramentas novas - o principal foi aprender como pesquisar!   
+O que posso dizer é que a cada dia na construção desta API, fui me desenvolvendo mais. Aprendi como corrigir novos erros, entender porque algumas coisas funcionam e outras não. Descobri ferramentas novas - o principal foi aprender como pesquisar, isso faz uma baita diferença! Hoje consigo olhar para o código e entender o que está acontecendo. Automaticamente me recordo do dia em que fiz o processo seletivo e fiquei sem dormir para poder entregar a calculadora a tempo e hoje estou aqui terminando este ciclo. 
+
+````javascript
+if (medo){
+    return "respira e continua"
+
+}else if {
+    return "Você está chegando no seu objetivo"
+
+}else{
+    return "Parabéns você concluiu com êxito!"
+}
+````
+
+## Só tenho o que agradecer. Obrigada pela oportunidade,
+## {REPROGRAMA} e XP.inc ♥
+
+
+![concluido](./img/concluido.jpg)
+
+
 
 
