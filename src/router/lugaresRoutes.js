@@ -19,5 +19,6 @@ router.post("/comentar", comentController.postComent)
 router.get("/ver", comentController.getComents)
 
 
+
 module.exports = router 
 

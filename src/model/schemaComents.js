@@ -34,3 +34,4 @@ const ComentsSchema = new Schema({
 const comentarioCollection = mongoose.model('comentario', ComentsSchema)
 
 module.exports = comentarioCollection
+

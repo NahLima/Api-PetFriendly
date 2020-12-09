@@ -20,6 +20,7 @@ const SECRET = process.env.SECRET;
 //     })
 //   })
 // };
+
 const createUser = (req, res) => {
   const senhaComHash = bcrypt.hashSync(req.body.senha, 10) // o segundo argumento ( o numero) significa qu qto maior esse numero mais complexa é o seu hash
   req.body.senha = senhaComHash

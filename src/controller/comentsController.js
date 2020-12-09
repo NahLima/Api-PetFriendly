@@ -46,3 +46,9 @@ module.exports = {
     postComent,
     getComents
 }
+
+
+
+
+
+
