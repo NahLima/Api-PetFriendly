@@ -1,6 +1,6 @@
 
 const app = require("./src/app");
-//const PORT = 5555
+
 const port = process.env.PORT; // a porta 
 
 
