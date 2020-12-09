@@ -5,11 +5,32 @@ const SECRET = process.env.SECRET;
 
 
 // criar um usuario novo 
-const createUser = (req, res) => {
-  const senhaComHash = bcrypt.hashSync(req.body.senha, 10); // o segundo argumento ( o numero) significa qu qto maior esse numero mais complexa é o seu hash
-  req.body.senha = senhaComHash;
-  const usuario = new userCollection(req.body);
+// const createUser = (req, res) => {
+//   const senhaComHash = bcrypt.hashSync(req.body.senha, 10); // o segundo argumento ( o numero) significa qu qto maior esse numero mais complexa é o seu hash
+//   req.body.senha = senhaComHash;
+//   const usuario = new userCollection(req.body);
 
+//   usuario.save(function (err) {
+//     if (err) {
+//       res.status(500).send({ message: err.message })
+//     }
+//     res.status(201).send({
+//       mensagem: "usuario criado com sucesso!",
+//       usuario
+//     })
+//   })
+// };
+const createUser = (req, res) => {
+  const senhaComHash = bcrypt.hashSync(req.body.senha, 10) // o segundo argumento ( o numero) significa qu qto maior esse numero mais complexa é o seu hash
+  req.body.senha = senhaComHash
+  const usuario = new userCollection(req.body)
+
+  userCollection.findOne({ email: req.body.email }, function (error, user) {
+    if (user) {
+      return res.status(404).send({
+        mensagem:`já existe cadastro com esse email ${req.body.email}`
+      })
+    }
   usuario.save(function (err) {
     if (err) {
       res.status(500).send({ message: err.message })
@@ -19,7 +40,8 @@ const createUser = (req, res) => {
       usuario
     })
   })
-};
+})
+}
 
 
 //get all users
@@ -110,4 +132,3 @@ module.exports = {
   delUserById,
   loginUser
 }
-
