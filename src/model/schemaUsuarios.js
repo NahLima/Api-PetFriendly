@@ -24,7 +24,7 @@ const userSchema = new Schema({
     
 },
 {
-    versionKey: false //gera por padrão uma versão para cada atualização do documento
+    versionKey: false 
 });
 
 const userCollection = mongoose.model('cadastroUser', userSchema);

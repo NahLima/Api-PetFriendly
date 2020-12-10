@@ -37,20 +37,7 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json()) // configura body-parser
 
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true
-//   })
-// )
 
-// app.use(function (req, res, next) {  // função do express pode ser usado caso não instale o body-parser
-//     res.header("Access-Control-Allow-Origin", "*")
-//     res.header(
-//       "Access-Control-Allow-Headers",
-//       "Origin, X-Requested-With, Content-Type, Accept"
-//       )
-//       next()
-//     })
 
 app.use('/', index)
 app.use('/lugares', lugares)

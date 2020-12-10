@@ -1,7 +1,7 @@
 
 const app = require("./src/app");
 
-const port = process.env.PORT; // a porta 
+const port = process.env.PORT; // a porta esta no .env
 
 
 app.listen(port, () => {
