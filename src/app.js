@@ -1,14 +1,15 @@
 //require('dotenv-safe').config();
-const dotenv = require('dotenv') //
-dotenv.config()  //
+
 
 const express = require('express')
 const bodyParser = require('body-parser') 
 const mongoose = require('mongoose')
 const cors = require('cors')
+const dotenv = require('dotenv') //
 const app = express()
 
 
+dotenv.config()  
 
 //string de conexão
 mongoose.connect(process.env.MONGODB_URI,{
