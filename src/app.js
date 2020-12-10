@@ -22,13 +22,11 @@ mongoose.connect(process.env.MONGODB_URI,{
 //conexão com o mongo
 let db = mongoose.connection
 
-// db.on("error", console.log.bind(console, "connection error:"))
-// db.once("open", function (){
-//   console.log("conexão feita com sucesso!")
-// })
+db.on("error", console.log.bind(console, "connection error:"))
+db.once("open", function (){
+  console.log("conexão feita com sucesso!")
+})
 
-.then(() => console.log('MongoDB connected'))
-.catch((err) => console.log(err))
 
 //rotas
 const index = require('./router/index')
