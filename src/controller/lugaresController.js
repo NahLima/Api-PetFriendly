@@ -2,10 +2,10 @@ const lugaresCollection = require('../model/schemaLugares')
 
 
 //getAll lugares
-const getLugares = (req,res)=>{
+const getLugares = async (req,res)=>{
     console.log(req.url)
 
-    lugaresCollection.find((error,lugares)=>{ 
+    await lugaresCollection.find((error,lugares)=>{ 
         if(error){
             return res.status(500).send(error)
         }else{
@@ -19,10 +19,10 @@ const getLugares = (req,res)=>{
 
 
 //Get ID
-const getById = (req, res) => {
+const getById = async (req, res) => {
     const idParam = req.params.id
     
-    lugaresCollection.findById(idParam, (error, localID)=>{
+    await lugaresCollection.findById(idParam, (error, localID)=>{
         if(error){
             return res.status(404).send({mensagem:"ID não encontrado"})
         }else{
@@ -38,9 +38,9 @@ const getById = (req, res) => {
 }
 
 // GET tipo
-const getTipo = (req, res) => {
+const getTipo = async (req, res) => {
         const nomeParam = req.params.tipo
-        lugaresCollection.find({tipo:nomeParam}, (error, tipo) => {
+        await lugaresCollection.find({tipo:nomeParam}, (error, tipo) => {
           if(error) {
             return res.status(500).send(error)
     
@@ -54,10 +54,10 @@ const getTipo = (req, res) => {
       }
 
 //Get nome
-const getNome = (req,res) => {
+const getNome = async (req,res) => {
     const nomeParam = req.params.nome // normalize("NFD").replace(/[^a-zA-Zs]/g, "")
 
-    lugaresCollection.find({nome: new RegExp(nomeParam,'i')},(error,nomeLugar)=>{  
+    await lugaresCollection.find({nome: new RegExp(nomeParam,'i')},(error,nomeLugar)=>{  
 
         if(error){
             return res.status(404).send(error)
@@ -75,12 +75,12 @@ const getNome = (req,res) => {
  
 
 // POST add novo lugar
-const addLugar  = (req,res)=>{
+const addLugar  =async (req,res)=>{
     
     const lugarBody = req.body 
     const lugarAdd= new lugaresCollection(lugarBody)
 
-    lugarAdd.save((error)=>{   
+    await lugarAdd.save((error)=>{   
         if(error){
             return res.status(400).send(error)
         }else{
@@ -94,12 +94,12 @@ const addLugar  = (req,res)=>{
 
 // PUT atualizar 
 
-const upDate = (req,res) =>{
+const upDate = async (req,res) =>{
     const idParam = req.params.id
     const atualizaBody = req.body
     const novo = {new:true} // editamos dizendo que estamos apenas atualizando
 
-    lugaresCollection.findByIdAndUpdate(idParam, atualizaBody, novo,(error,atualiza)=>{
+    await lugaresCollection.findByIdAndUpdate(idParam, atualizaBody, novo,(error,atualiza)=>{
 
             if(error) {
                 return res.status(500).send(error)
@@ -116,9 +116,9 @@ const upDate = (req,res) =>{
 
 // deletar pelo id
 
-const delLocalById = (req,res)=>{
+const delLocalById = async (req,res)=>{
     const idParam = req.params.id
-    lugaresCollection.findByIdAndDelete(idParam, (error, contatoID)=>{
+    await lugaresCollection.findByIdAndDelete(idParam, (error, contatoID)=>{
         if(error){
             return res.status(500).send(error)
         }else{
