@@ -9,10 +9,10 @@ const dotenv = require('dotenv') //
 const app = express()
 
 
-dotenv.config({path: '.env'})
+dotenv.config({path: '.env'}) //
 
 //string de conexão
-mongoose.Promise = global.Promisse
+mongoose.Promise = global.Promise //
 
 mongoose.connect(process.env.MONGODB_URI,{
     useNewUrlParser: true,
