@@ -41,7 +41,7 @@ const lugaresSchema = new Schema({
 },
 
 {
-    collection:"PetFriendly",  // para puxar os dados que já tenho no banco de dados
+    //collection:"PetFriendly",  // para puxar os dados que já tenho no banco de dados
     versionKey:false
 })
 

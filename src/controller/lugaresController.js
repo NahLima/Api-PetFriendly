@@ -2,10 +2,10 @@ const lugaresCollection = require('../model/schemaLugares')
 
 
 //getAll lugares
-const getLugares = async (req,res)=>{
+const getLugares =  (req,res)=>{
     console.log(req.url)
 
-    await lugaresCollection.find((error,lugares)=>{ 
+     lugaresCollection.find((error,lugares)=>{ 
         if(error){
             return res.status(500).send(error)
         }else{
